@@ -21,14 +21,14 @@ Then add your Gemini API key to `.env`.
 ## Run
 
 ```bash
-python -m autogenchat_demo.main
-```
-
-Or install the package and use the script entrypoint:
-
-```bash
 pip install -e .
 autogenchat
+```
+
+Or run directly without installing:
+
+```bash
+PYTHONPATH=src python -m autogenchat_demo.main
 ```
 
 Type `exit`, `quit`, or `q` to end the chat.
