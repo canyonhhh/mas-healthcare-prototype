@@ -1,6 +1,6 @@
 # mas-healthcare-prototype
 
-Autogen agentchat demo wired to Gemini using an API key.
+Autogen agentchat demo wired to Gemini using the OpenAI-compatible endpoint.
 
 ## Setup
 
@@ -16,7 +16,8 @@ Create a `.env` file:
 cp .env.example .env
 ```
 
-Then add your Gemini API key to `.env`.
+Then add your Gemini API key to `.env`. The default base URL targets the
+OpenAI-compatible Gemini endpoint; override `GEMINI_BASE_URL` if needed.
 
 ## Run
 
@@ -32,3 +33,8 @@ PYTHONPATH=src python -m autogenchat_demo.main
 ```
 
 Type `exit`, `quit`, or `q` to end the chat.
+
+## Notes
+
+This project uses `autogen-ext` with the OpenAI-compatible Gemini endpoint:
+`https://generativelanguage.googleapis.com/v1beta/openai/`.
