@@ -1,0 +1,23 @@
+[project]
+name = "mas-healthcare-prototype"
+version = "0.1.0"
+description = "Autogen agentchat demo wired to Gemini via API key."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+
+dependencies = [
+  "pyautogen>=0.2.0",
+  "google-generativeai>=0.6.0",
+  "python-dotenv>=1.0.0",
+]
+
+[project.scripts]
+autogenchat = "autogenchat_demo.main:run"
+
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
