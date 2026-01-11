@@ -10,6 +10,7 @@ dependencies = [
   "autogen-agentchat>=0.7.5",
   "autogen-core>=0.7.5",
   "autogen-ext[openai]>=0.7.5",
+  "pandas>=2.1.0",
   "python-dotenv>=1.0.0",
 ]
 

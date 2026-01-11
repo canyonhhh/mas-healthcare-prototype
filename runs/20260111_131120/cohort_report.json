@@ -1,0 +1,237 @@
+{
+  "generated_at": "2026-01-11T13:11:21.404873",
+  "cohort": {
+    "hadm_ids": [
+      22741225,
+      22595853,
+      27494880,
+      23112364,
+      22999601
+    ],
+    "cohort_preview": [
+      {
+        "subject_id": 10000032,
+        "hadm_id": 22595853,
+        "admittime": "2180-05-06 22:23:00",
+        "dischtime": "2180-05-07 17:15:00"
+      },
+      {
+        "subject_id": 10014354,
+        "hadm_id": 22741225,
+        "admittime": "2146-10-08 23:47:00",
+        "dischtime": "2146-10-12 18:20:00"
+      },
+      {
+        "subject_id": 10039708,
+        "hadm_id": 22999601,
+        "admittime": "2142-05-15 17:14:00",
+        "dischtime": "2142-05-15 18:21:00"
+      },
+      {
+        "subject_id": 10021938,
+        "hadm_id": 23112364,
+        "admittime": "2181-10-13 01:48:00",
+        "dischtime": "2181-10-14 17:40:00"
+      },
+      {
+        "subject_id": 10014354,
+        "hadm_id": 27494880,
+        "admittime": "2147-06-04 00:42:00",
+        "dischtime": "2147-06-04 15:00:00"
+      }
+    ],
+    "stats": {
+      "total_admissions": 275,
+      "cohort_size": 5,
+      "seed": 1
+    }
+  },
+  "table_summary": {
+    "admissions": {
+      "rows": 5,
+      "columns": [
+        "subject_id",
+        "hadm_id",
+        "admittime",
+        "dischtime",
+        "deathtime",
+        "admission_type",
+        "admit_provider_id",
+        "admission_location",
+        "discharge_location",
+        "insurance",
+        "language",
+        "marital_status",
+        "race",
+        "edregtime",
+        "edouttime",
+        "hospital_expire_flag"
+      ]
+    },
+    "patients": {
+      "rows": 4,
+      "columns": [
+        "subject_id",
+        "gender",
+        "anchor_age",
+        "anchor_year",
+        "anchor_year_group",
+        "dod"
+      ]
+    },
+    "diagnoses_icd": {
+      "rows": 58,
+      "columns": [
+        "subject_id",
+        "hadm_id",
+        "seq_num",
+        "icd_code",
+        "icd_version"
+      ]
+    },
+    "labevents": {
+      "rows": 449,
+      "columns": [
+        "labevent_id",
+        "subject_id",
+        "hadm_id",
+        "specimen_id",
+        "itemid",
+        "order_provider_id",
+        "charttime",
+        "storetime",
+        "value",
+        "valuenum",
+        "valueuom",
+        "ref_range_lower",
+        "ref_range_upper",
+        "flag",
+        "priority",
+        "comments"
+      ]
+    },
+    "d_icd_diagnoses": {
+      "rows": 109775,
+      "columns": [
+        "icd_code",
+        "icd_version",
+        "long_title"
+      ]
+    },
+    "d_labitems": {
+      "rows": 1622,
+      "columns": [
+        "itemid",
+        "label",
+        "fluid",
+        "category"
+      ]
+    }
+  },
+  "features": [
+    {
+      "hadm_id": 22595853,
+      "length_of_stay_hours": 18.866666666666667,
+      "diagnosis_count": 8,
+      "lab_count": 57,
+      "abnormal_lab_count": 19,
+      "abnormal_fraction": 0.3333333333333333
+    },
+    {
+      "hadm_id": 23112364,
+      "length_of_stay_hours": 39.86666666666667,
+      "diagnosis_count": 9,
+      "lab_count": 111,
+      "abnormal_lab_count": 54,
+      "abnormal_fraction": 0.4864864864864865
+    },
+    {
+      "hadm_id": 22741225,
+      "length_of_stay_hours": 90.55,
+      "diagnosis_count": 16,
+      "lab_count": 165,
+      "abnormal_lab_count": 35,
+      "abnormal_fraction": 0.21212121212121213
+    },
+    {
+      "hadm_id": 27494880,
+      "length_of_stay_hours": 14.3,
+      "diagnosis_count": 17,
+      "lab_count": 116,
+      "abnormal_lab_count": 23,
+      "abnormal_fraction": 0.19827586206896552
+    },
+    {
+      "hadm_id": 22999601,
+      "length_of_stay_hours": 1.1166666666666667,
+      "diagnosis_count": 8,
+      "lab_count": 0,
+      "abnormal_lab_count": 0,
+      "abnormal_fraction": 0.0
+    }
+  ],
+  "features_summary": {
+    "rows": 5,
+    "columns": [
+      "hadm_id",
+      "length_of_stay_hours",
+      "diagnosis_count",
+      "lab_count",
+      "abnormal_lab_count",
+      "abnormal_fraction"
+    ]
+  },
+  "checks": {
+    "checks": [
+      {
+        "name": "temporal_window",
+        "status": "warn",
+        "details": {
+          "out_of_window_count": 94
+        }
+      },
+      {
+        "name": "key_integrity",
+        "status": "pass",
+        "details": {
+          "admissions.hadm_id": 0,
+          "admissions.subject_id": 0,
+          "patients.subject_id": 0,
+          "diagnoses.hadm_id": 0,
+          "diagnoses.subject_id": 0,
+          "labevents.hadm_id": 0,
+          "labevents.subject_id": 0
+        }
+      },
+      {
+        "name": "mapping_coverage",
+        "status": "pass",
+        "details": {
+          "icd_coverage": 1.0,
+          "labitem_coverage": 1.0
+        }
+      },
+      {
+        "name": "missingness",
+        "status": "pass",
+        "details": {
+          "admissions.admittime": 0.0,
+          "admissions.dischtime": 0.0,
+          "admissions.subject_id": 0.0,
+          "admissions.hadm_id": 0.0,
+          "diagnoses.icd_code": 0.0,
+          "diagnoses.icd_version": 0.0,
+          "diagnoses.hadm_id": 0.0,
+          "labevents.itemid": 0.0,
+          "labevents.charttime": 0.0,
+          "labevents.hadm_id": 0.0
+        }
+      }
+    ],
+    "summary": {
+      "pass": 3,
+      "warn": 1,
+      "fail": 0
+    }
+  }
+}

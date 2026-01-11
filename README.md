@@ -34,6 +34,22 @@ PYTHONPATH=src python -m autogenchat_demo.main
 
 Type `exit`, `quit`, or `q` to end the chat.
 
+### Cohort pipeline commands
+
+Inside the REPL you can run deterministic pipelines:
+
+```text
+run cohort n=5 seed=1
+plan "cohort report for 5 admissions with safety checks"
+```
+
+You can also run the pipeline directly:
+
+```bash
+python -m autogenchat_demo.pipeline --n 5 --seed 1
+python -m autogenchat_demo.smoke_test_planning
+```
+
 ## Notes
 
 This project uses `autogen-ext` with the OpenAI-compatible Gemini endpoint:
