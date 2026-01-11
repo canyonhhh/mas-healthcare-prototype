@@ -42,7 +42,7 @@ mas-pipeline
 ```
 
 Outputs are written to `artifacts/` (registry.json, audit.jsonl, features, safety_report.json, report.md).
-At runtime you’ll be prompted for a goal; press Enter to accept the default, or set `MAS_GOAL="warn on future labs; LOS 96 hours; abnormal lab threshold 5"` to tweak thresholds via the goal parser.
+The MAS pipeline now runs with fixed defaults (no goal prompt); the merged config is written to `artifacts/config_override.json`.
 
 ## Notes
 

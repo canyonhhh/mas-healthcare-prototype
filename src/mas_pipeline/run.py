@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import asyncio
+import json
 import os
 from pathlib import Path
 
@@ -14,7 +15,6 @@ from autogen_ext.models.openai import OpenAIChatCompletionClient
 
 from .contracts import PipelinePaths
 from .config import get_config
-from .goal_parser import write_override
 from .tools import TOOLS
 
 
@@ -92,17 +92,13 @@ async def _arun() -> None:
 
     model_client = OpenAIChatCompletionClient(model=model, api_key=api_key)
 
-    # Goal parsing: allow MAS_GOAL env var to override thresholds/behavior. If unset, prompt.
-    goal_env = os.getenv("MAS_GOAL")
-    if goal_env:
-        goal = goal_env
-    else:
-        try:
-            goal = input("Enter MAS goal (or press Enter for default): ").strip() or "Run the MAS pipeline now."
-        except EOFError:
-            goal = "Run the MAS pipeline now."
+    # Always use default config; no user goal parsing.
+    goal = "Run the MAS pipeline now."
     paths = PipelinePaths.default(Path("."))
-    write_override(goal, base_config=get_config(), override_path=paths.artifacts_dir / "config_override.json")
+    paths.artifacts_dir.mkdir(parents=True, exist_ok=True)
+    (paths.artifacts_dir / "config_override.json").write_text(
+        json.dumps(get_config(), indent=2), encoding="utf-8"
+    )
 
     team = build_team(model_client)
 
