@@ -1,0 +1,10 @@
+{
+  "risk_rule": {
+    "los_hours_high": 72,
+    "abnormal_lab_threshold": 2,
+    "diagnosis_threshold": 5
+  },
+  "safety_rules": {
+    "fail_on_future_labs": false
+  }
+}

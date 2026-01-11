@@ -10,11 +10,13 @@ dependencies = [
   "autogen-agentchat>=0.7.5",
   "autogen-core>=0.7.5",
   "autogen-ext[openai]>=0.7.5",
+  "pandas>=2.1.0",
   "python-dotenv>=1.0.0",
 ]
 
 [project.scripts]
 autogenchat = "autogenchat_demo.main:run"
+mas-pipeline = "mas_pipeline.run:run"
 
 [build-system]
 requires = ["setuptools>=68.0", "wheel"]

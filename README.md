@@ -34,6 +34,16 @@ PYTHONPATH=src python -m autogenchat_demo.main
 
 Type `exit`, `quit`, or `q` to end the chat.
 
+## Run the MAS pipeline (round robin)
+
+```bash
+pip install -e .
+mas-pipeline
+```
+
+Outputs are written to `artifacts/` (registry.json, audit.jsonl, features, safety_report.json, report.md).
+At runtime you’ll be prompted for a goal; press Enter to accept the default, or set `MAS_GOAL="warn on future labs; LOS 96 hours; abnormal lab threshold 5"` to tweak thresholds via the goal parser.
+
 ## Notes
 
 This project uses `autogen-ext` with the OpenAI-compatible Gemini endpoint:

@@ -1,0 +1,65 @@
+{
+  "status": "pass",
+  "checks": [
+    {
+      "name": "no_future_labs",
+      "status": "warn",
+      "details": "Lab charttime should not exceed discharge time.",
+      "metrics": {
+        "future_labs": 199
+      }
+    },
+    {
+      "name": "plausible_ranges",
+      "status": "warn",
+      "details": "Lab values outside plausible bounds are flagged.",
+      "metrics": {
+        "out_of_range_count": 95
+      }
+    },
+    {
+      "name": "dx_lab_coherence_diabetes_glucose",
+      "status": "warn",
+      "details": "Admissions with diagnosis containing 'diabetes' missing labs containing 'glucose'.",
+      "metrics": {
+        "hadm_ids": [
+          20900955,
+          22416954,
+          23143086,
+          23199774,
+          24096336,
+          26739864,
+          27125816,
+          28778757,
+          28984460
+        ]
+      }
+    },
+    {
+      "name": "dx_lab_coherence_renal_creatinine",
+      "status": "warn",
+      "details": "Admissions with diagnosis containing 'renal' missing labs containing 'creatinine'.",
+      "metrics": {
+        "hadm_ids": [
+          22416954,
+          22999601,
+          27504040
+        ]
+      }
+    },
+    {
+      "name": "lab_missingness",
+      "status": "pass",
+      "details": "Fraction of admissions without any labs.",
+      "metrics": {
+        "missing_fraction": 0.08363636363636362
+      }
+    }
+  ],
+  "metrics": {
+    "future_labs": 199,
+    "out_of_range_labs": 95,
+    "labs_missing_fraction": 0.08363636363636362
+  },
+  "generated_at": "2026-01-11T14:54:01.219666Z"
+}
